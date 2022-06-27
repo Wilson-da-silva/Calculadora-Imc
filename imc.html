@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular imc</title>
+    <link href="/imc.css" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <nav class="link">
+            <a href="https://www.tuasaude.com/imc/" target="_blank">O QUE É IMC?</a>
+        </nav>
+    </header>
+
+    <h1>CALCULADORA DE IMC</h1>
+
+    <div class="container" id="container">
+        <h2>CALCULE O SEU IMC</h2>
+
+        <div class="form">
+            <form id="formulario">
+                <label for="name" class="label">Nome</label>
+                <input type="text" required  name="nome" class="input" id="nome" placeholder="Insira o seu nome">
+                <label for="peso" class="label">Peso</label>
+                <input type="number" req  name="peso" id="peso" class="input" placeholder="Insira o seu peso">
+                <label for="altura" class="label">Altura</label>
+                <input type="number"  name="altura" id="altura" class="input" placeholder="Insira a sua altura">
+                <button type="button" id="botao" onclick="calcularImc()">Enviar</button>
+                <h3 id="resultado"></h3>
+                <h3 id="obs"></h3>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
+
+<script>
+
+
+    const button = document.getElementById("botao");
+
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const pesos = document.getElementById("peso");
+        const alturaa = document.getElementById("altura");
+        const nomePessoal = document.getElementById("nome");
+        var erro = document.getElementById("resultado");
+
+        if (nome.value == '' || alturaa.value == '' || nomePessoal.value =='') {
+            nomePessoal.classList.add("inputError")
+            alturaa.classList.add("inputError");
+            pesos.classList.add("inputError");
+            erro.innerHTML = "Campo Incorreto";
+            erro.style.color = "red";
+            
+        }
+        else {
+            nomePessoal.classList.remove("inputError");
+            alturaa.classList.remove("inputError");
+            pesos.classList.remove("inputError");
+            erro.style.color = "black";
+
+        }
+    })
+
+    function calcularImc() {
+       
+        var nome = document.getElementById("nome").value;
+        var peso = document.getElementById("peso").value;
+        var altura = document.getElementById("altura").value; 
+        var escrever = document.getElementById("resultado");
+        var calcular = peso / (altura * altura);
+        escrever.innerHTML = nome + " seu Imc é " + Math.round(calcular);
+
+
+        if (calcular < 18.5) {
+            var magreza = document.getElementById("obs");
+            magreza.innerHTML = "Magreza | Obesidade 0";
+            var border = document.getElementById("container");
+            border.style.border = "1px solid black",
+            magreza.style.color = "green"
+        }  
+         else if (calcular >= 18,5 && calcular  < 25) {
+            var magreza = document.getElementById("obs");
+            var border = document.getElementById("container");
+            border.style.border = "1px solid black",
+            magreza.innerHTML = "Normal | Obesidade 0";
+            magreza.style.color = "green"
+        }
+        else if (calcular >=25 && calcular <30) {
+            var magreza = document.getElementById("obs");
+            var border = document.getElementById("container");
+            border.style.border = "1px solid black",
+            magreza.innerHTML = "Sobrepeso | Obesidade 1";
+            magreza.style.color = "orange "
+        }
+
+        else if ( calcular >= 30 && calcular < 40){
+            var magreza = document.getElementById("obs");
+            var border = document.getElementById("container");
+            border.style.border = "1px solid black",
+            magreza.innerHTML = "Obesidade | Obesidade 2";
+            magreza.style.color = "red "
+        }
+
+        else if ( calcular >= 40) {
+            var magreza = document.getElementById("obs");
+            var border = document.getElementById("container");
+            border.style.border = "1px solid red",
+            magreza.innerHTML = "Obesidade Grave";
+            magreza.style.color = "red ";
+        }
+
+    }
+    
+       
+
+</script>
