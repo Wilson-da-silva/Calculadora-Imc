@@ -57,10 +57,16 @@ h1 {
     margin-top: 8px;
 }
 
+::placeholder {
+    font-size: 15px;
+    color: rgb(87, 81, 81);
+}
+
 .input {
-    padding-left: 5px;
+    padding-left: 3px;
     border-radius: 8px;
     border: 1px solid black;
+    width: 232px;
 }
 
 h2 {
