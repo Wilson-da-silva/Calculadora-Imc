@@ -131,6 +131,10 @@ footer {
     border: 1px solid black;
 }
 
+img {
+    height: 40px;
+    margin-right: 2rem;
+}
 
 @media only screen and (max-width: 1080px) {
 
