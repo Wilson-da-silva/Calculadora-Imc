@@ -148,6 +148,10 @@ img {
         height: 24rem;
     }
 
+    img {
+        margin-right: 0.7rem;
+    }
+
     h1 {
         margin-right: 40px;
         margin-top: 25px;
