@@ -39,6 +39,7 @@ h1 {
     width: 18rem;
     margin-top: 8rem;
     margin-left: 39%;
+    height: auto;
     padding: 20px;
     border: 1px solid black;
     background-color: rgb(255, 255, 255);
